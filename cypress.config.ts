@@ -14,6 +14,13 @@ export default defineConfig({
     supportFile: 'cypress/support/e2e.ts',
     env: {
       grepTag: '@smoke'
+    },
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'cypress/reports',
+      overwrite: false,
+      html: true,
+      json: true
     }
   },
 });

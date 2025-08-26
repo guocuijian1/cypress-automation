@@ -28,17 +28,22 @@
 ## 启动/重置测试环境（Docker）
 
 1. **启动测试环境**
-   - 当所有前置条件（Node.js、npm、Docker、docker-compose）都已安装并配置好后，进入项目根目录，执行：
+   - 当所有前置条件（Node.js、npm、Docker、docker-compose）都已安装并配置好后，进入cypress/docker目录，执行：
      ```bash
      docker-compose up -d
      ```
    - 该命令会在后台启动所有测试相关的 Docker 服务。
 
 2. **重置测试环境**
-   - 如果需要重置（清理并重启）测试环境，进入项目根目录，执行：
-     ```bash
-     sh tools/restart-docker.sh
-     ```
+   - 如果需要重置（清理并重启）测试环境，进入项目根目录，根据你的操作系统选择对应命令：
+     - **Windows** 用户请运行：
+       ```bat
+       tools\restart-docker.bat
+       ```
+     - **Linux/macOS** 用户请运行：
+       ```bash
+       sh tools/restart-docker.sh
+       ```
    - 该脚本会先关闭所有容器并清理数据卷，然后重新启动所有服务。
 
 ## 运行 E2E 测试用例
