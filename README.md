@@ -25,6 +25,14 @@
    - 请确保本机已安装 Docker 和 docker-compose。
    - 可参考 [Docker 官方文档](https://docs.docker.com/get-docker/) 和 [docker-compose 官方文档](https://docs.docker.com/compose/install/) 进行安装。
 
+5. **启动 Docker 测试环境**
+   - 在继续后续步骤前，请先启动 Docker 环境。
+   - 进入 `cypress/docker` 目录，执行：
+     ```bash
+     docker-compose up -d
+     ```
+   - 该命令会在后台启动所有测试相关的 Docker 服务。
+
 ## 启动/重置测试环境（Docker）
 
 1. **启动测试环境**
@@ -38,11 +46,11 @@
    - 如果需要重置（清理并重启）测试环境，进入项目根目录，根据你的操作系统选择对应命令：
      - **Windows** 用户请运行：
        ```bat
-       tools\restart-docker.bat
+       cypress\tools\restart-docker.bat
        ```
      - **Linux/macOS** 用户请运行：
        ```bash
-       sh tools/restart-docker.sh
+       sh cypress\tools/restart-docker.sh
        ```
    - 该脚本会先关闭所有容器并清理数据卷，然后重新启动所有服务。
 
