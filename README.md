@@ -6,13 +6,9 @@
    - 推荐使用 Node.js 18 及以上版本。
    - 可通过 [Node.js 官网](https://nodejs.org/) 下载并安装。
 
-2. **安装最新 Cypress（推荐 15.x）**
-   - 在项目根目录下执行：
-     ```bash
-     npm install cypress@15 --save-dev
-     ```
-   - 该命令会安装 Cypress 15 版本作为开发依赖。
-   - 如需了解更多 Cypress 安装细节，可参考 [Cypress 官方文档](https://docs.cypress.io/guides/getting-started/installing-cypress).
+2. **安装 Docker 和 docker-compose**
+   - 请确保本机已安装 Docker 和 docker-compose。
+   - 可参考 [Docker 官方文档](https://docs.docker.com/get-docker/) 和 [docker-compose 官方文档](https://docs.docker.com/compose/install/) 进行安装。
 
 3. **安装依赖包**
    - 在项目根目录下执行：
@@ -20,18 +16,6 @@
      npm install
      ```
    - 该命令会自动安装所有 package.json 中声明的依赖。
-
-4. **安装 Docker 和 docker-compose**
-   - 请确保本机已安装 Docker 和 docker-compose。
-   - 可参考 [Docker 官方文档](https://docs.docker.com/get-docker/) 和 [docker-compose 官方文档](https://docs.docker.com/compose/install/) 进行安装。
-
-5. **启动 Docker 测试环境**
-   - 在继续后续步骤前，请先启动 Docker 环境。
-   - 进入 `cypress/docker` 目录，执行：
-     ```bash
-     docker-compose up -d
-     ```
-   - 该命令会在后台启动所有测试相关的 Docker 服务。
 
 ## 启动/重置测试环境（Docker）
 
