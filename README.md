@@ -50,7 +50,7 @@
        ```
      - **Linux/macOS** 用户请运行：
        ```bash
-       sh cypress\tools/restart-docker.sh
+       sh cypress/tools/restart-docker.sh
        ```
    - 该脚本会先关闭所有容器并清理数据卷，然后重新启动所有服务。
 
