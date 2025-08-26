@@ -30,11 +30,11 @@
    - 如果需要重置（清理并重启）测试环境，进入项目根目录，根据你的操作系统选择对应命令：
      - **Windows** 用户请运行：
        ```bat
-       cypress\tools\restart-docker.bat
+       cypress\docker\restart-docker.bat
        ```
      - **Linux/macOS** 用户请运行：
        ```bash
-       sh cypress/tools/restart-docker.sh
+       sh cypress/docker/restart-docker.sh
        ```
    - 该脚本会先关闭所有容器并清理数据卷，然后重新启动所有服务。
 
