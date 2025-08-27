@@ -1,0 +1,28 @@
+name: Cypress E2E Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Start Docker environment
+        run: docker-compose -f cypress/docker/docker-compose.yml up -d
+      - name: Install dependencies
+        run: npm install
+      - name: Run Cypress tests
+        run: npx cypress run --spec "cypress/e2e/**/*.cy.ts" --browser chrome --headed
+      - name: Merge Mochawesome reports
+        run: npm run report:all
+      - name: Upload test report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: merged-report
+          path: cypress/reports/merged.html
