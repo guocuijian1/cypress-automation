@@ -1,6 +1,7 @@
 // 导入 Cypress 命令
 import './commands';
 require('@cypress/grep')();
+require('cypress-xpath');
 
 // 在测试开始前根据标签过滤测试用例
 before(function () {

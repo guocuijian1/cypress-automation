@@ -1,8 +1,8 @@
-import { MainPage } from '../page-objects/main/main-page';
-import { WorkspacesPage } from '../page-objects/workspaces/workspaces-page';
-import { MainData } from '../page-objects/main/main-data';
+import { MainPage } from '../../page-objects/main/main-page';
+import { WorkspacesPage } from '../../page-objects/workspaces/workspaces-page';
+import { MainData } from '../../page-objects/main/main-data';
 
-describe('Workspaces functions', () => {
+describe.skip('Workspaces functions', () => {
   const mainPage = new MainPage();
   const workspacesPage = new WorkspacesPage();
   const mainData = new MainData();

@@ -4,6 +4,8 @@ export class SummaryPanel {
     private readonly consumersTextLocator = 'div[data-testid="Consumers"] div.metric-value-text';
     private readonly pluginsTextLocator = 'div[data-testid="Plugins"] div.metric-value-text';
     private readonly apiRequestTextLocator = 'div[data-testid="API Requests"] div.metric-value-text';
+    private readonly defaultWorkspaceLocator = 'div.table-container table div[title="default"]';
+
 
     getServicesCount(): Cypress.Chainable<number> {
         return cy.get(this.servicesTextLocator).invoke('text').then(text => Number(text.trim()));
@@ -20,5 +22,7 @@ export class SummaryPanel {
     getAPIRequestCount(): Cypress.Chainable<string> {
         return cy.get(this.apiRequestTextLocator).invoke('text').then(text => text.trim());
     }
+    clickDefaultWorkspace(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.defaultWorkspaceLocator).click();
+    }
 }
-
