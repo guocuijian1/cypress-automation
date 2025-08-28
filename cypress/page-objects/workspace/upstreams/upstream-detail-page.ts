@@ -1,22 +1,21 @@
 export class UpstreamDetailPage {
-    // 页面标题 locator
+    // Page title locator
     public readonly titleLocator = "section span.title";
-    // upstream 名称 locator
+    // Upstream name locator
     public readonly nameLocator = "span[data-testid='upstream-detail-name']";
-    // upstream ID locator
+    // Upstream ID locator
     public readonly idLocator = "div[data-testid='id-copy-uuid'] div.copy-text";
 
-    // 获取页面标题内容
+    // Get page title content
     getTitleContent(): Cypress.Chainable<string> {
         return cy.get(this.titleLocator).invoke('text');
     }
-    // 获取 upstream 名称
+    // Get upstream name
     getName(): Cypress.Chainable<string> {
         return cy.get(this.nameLocator).invoke('text');
     }
-    // 获取 upstream ID
+    // Get upstream ID
     getId(): Cypress.Chainable<string> {
         return cy.get(this.idLocator).invoke('text');
     }
 }
-

@@ -1,16 +1,16 @@
 export class UpstreamsPage {
-    // 页面标题 locator
+    // Page title locator
     public readonly titleLocator = "section span.title";
-    // 新建 upstream 按钮 locator
+    // New upstream button locator
     public readonly newUpstreamButtonLocator = "a[data-testid='empty-state-action']";
     public readonly addUpstreamButtonLocator = "a[data-testid='toolbar-add-upstream']";
     public readonly pageUrl = "http://localhost:8002/default/upstreams";
 
-    // 获取页面标题内容
+    // Get page title content
     getTitleContent(): Cypress.Chainable<string> {
         return cy.get(this.titleLocator).invoke('text');
     }
-    // 点击新建 upstream 按钮
+    // Click new upstream button
     clickNewUpstreamButton() {
         //TO-DO:need refactor later
         cy.get(this.titleLocator).should('be.visible');
@@ -25,7 +25,7 @@ export class UpstreamsPage {
             }
         });
     }
-    // 页面跳转方法
+    // Navigate to page
     navigateToPage() {
         cy.visit(this.pageUrl);
     }

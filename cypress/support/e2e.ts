@@ -1,25 +1,23 @@
-// 导入 Cypress 命令
-import './commands';
 require('@cypress/grep')();
 require('cypress-xpath');
 
-// 忽略未捕获的异常
+// Ignore uncaught exceptions
 Cypress.on('uncaught:exception', (err, runnable) => {
-  // 返回 false 阻止 Cypress 因未捕获的异常而失败
+  // Return false to prevent Cypress from failing due to uncaught exceptions
   return false;
 });
 
-// 设置全局超时时间
+// Set global timeout
 Cypress.config('defaultCommandTimeout', 10000);
 
-// 在每个测试前执行
+// Execute before each test
 beforeEach(() => {
-  // 使用 session 来保持登录状态
+  // Use session to maintain login state
   cy.session('my-session', () => {
-    // 这里可以添加登录逻辑
+    // You can add login logic here
     cy.log('Session created');
   });
 });
 
-// 添加日志设置
+// Add log settings
 Cypress.env('LOG_LEVEL', 'info');

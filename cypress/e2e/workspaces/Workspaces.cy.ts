@@ -16,7 +16,6 @@ describe('Workspaces functions', () => {
   });
 
   beforeEach(() => {
-    // 直接进入工作区页面
     mainPage.enterWorkspacesPage();
   });
 

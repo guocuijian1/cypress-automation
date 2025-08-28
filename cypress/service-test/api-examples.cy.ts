@@ -11,7 +11,7 @@ describe('API Test', () => {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then(response => {
             cy.log('Service created or error:', response);
-            // 打印所有 key/value
+            // Print all key/value
             cy.log(response.body);
             if (response.status === 201) {
                 expect(response.status).to.eq(201);
@@ -90,7 +90,7 @@ describe('API Test', () => {
     it('should get all services', () => {
         api.getAllServices().then(response => {
             cy.log('Get all services response:', response.body.data.length);
-            // 可以加断言，确认返回内容结构
+            // You can add assertions to confirm the response structure
             expect(response.status).to.be.oneOf([200, 201]);
             expect(response.body).to.have.property('data');
         });

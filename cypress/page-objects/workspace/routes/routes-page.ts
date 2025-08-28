@@ -1,45 +1,44 @@
 import { CommonUtils } from '../common/common-utils';
-import * as cypress from "cypress";
 
 export class RoutesPage {
-    // 网关服务页面 URL
+    // Gateway service page URL
     routesUrl = "http://localhost:8002/default/routes";
-    // 路由列表表格定位器
+    // Route list table locator
     routesTableLocator = 'div.table-container table';
-    // 新建路由按钮定位器,路由列表为空时会显示
+    // New route button locator, shown when route list is empty
     newRouteButtonLocator = "a[data-testid='empty-state-action']";
-    // 新建路由按钮定位器,路由列表不为空时会显示
+    // New route button locator, shown when route list is not empty
     addRouteButtonLocator = "a[data-testid='toolbar-add-route']";
 
-    // 页面标题定位器
+    // Page title locator
     titleLocator = "section span.title";
 
     /**
-     * 获取路由列表表格元素
+     * Get the route list table element
      */
     getRoutesTable(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.routesTableLocator);
     }
 
     /**
-     * 获取页面标题文本
+     * Get the page title text
      */
     getTitleText(): Cypress.Chainable<string> {
         return cy.get(this.titleLocator).invoke('text');
     }
 
     /**
-     * 跳转到路由页面
+     * Navigate to the routes page
      */
     navigateToPage() {
         CommonUtils.navigateToUrl(this.routesUrl);
     }
 
     /**
-     * 点击新建路由按钮（优先使用可见的按钮：newRouteButtonLocator 或 addRouteButtonLocator）
+     * Click the new route button (prefer the visible button: newRouteButtonLocator or addRouteButtonLocator)
      */
     clickNewRouteButton(): Cypress.Chainable<JQuery<HTMLElement>> {
-        // 等待路由表格渲染，最多 10 秒
+        // Wait for the route table to render, up to 10 seconds
         //TO_DO:need refactor later
         cy.get(this.titleLocator, { timeout: 10000 }).should('be.visible');
         cy.wait(1000)
@@ -49,7 +48,7 @@ export class RoutesPage {
             } else if ($body.find(this.addRouteButtonLocator).length > 0 && $body.find(this.addRouteButtonLocator).is(':visible')) {
                 return cy.get(this.addRouteButtonLocator).click();
             } else {
-                throw new Error('未找到可见的新建路由按钮');
+                throw new Error('No visible new route button found');
             }
         });
     }

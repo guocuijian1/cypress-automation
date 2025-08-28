@@ -10,6 +10,7 @@ describe('Upstreams functions', () => {
     beforeEach(() => {
         upstreamsPage.navigateToPage();
         upstreamsPage.getTitleContent().then((title: string) => {
+            // Assert that the title is 'Upstreams'
             expect(title.trim()).eq('Upstreams');
         })
     });
@@ -18,14 +19,14 @@ describe('Upstreams functions', () => {
         const name = 'httpbin.konghq.com';
         upstreamsPage.clickNewUpstreamButton();
         newUpstreamPage.getTitleContent().then(title => {
+            // Assert that the title is 'New Upstream'
             expect(title.trim()).to.eq('New Upstream');
         });
 
         newUpstreamPage.inputName(name);
         newUpstreamPage.clickSaveButton();
 
-        // 跳转到详情页后，断言 ID 存在且非空
+        // After jumping to the detail page, assert that the ID exists and is not empty
         detailPage.getId().should('not.be.empty');
     });
 });
-

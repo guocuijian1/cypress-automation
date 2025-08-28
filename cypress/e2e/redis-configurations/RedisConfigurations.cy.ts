@@ -20,12 +20,12 @@ describe('Redis Configurations functions', () => {
             expect(title.trim()).to.eq('New Redis Configuration');
         })
 
-        // 输入配置内容
+        // Input configuration content
         const name = `redis-test-${Date.now()}`;
         newRedisConfigPage.inputName(name);
         newRedisConfigPage.clickSaveButton();
 
-        // 跳转到详情页后，断言 ID 存在且非空
+        // After jumping to the detail page, assert that the ID exists and is not empty
         detailPage.getIdValue().should('not.be.empty');
     });
 });

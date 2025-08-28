@@ -1,23 +1,23 @@
 import { UpstreamNameComboBoxPage } from "./upstream-name-combobox-page";
 
 export class NewUpstreamPage {
-    // 页面标题 locator
+    // Page title locator
     public readonly titleLocator = "header span.title";
-    // upstream 名称输入框 locator
+    // Upstream name input locator
     public readonly nameInputLocator = "input[data-testid='upstream-name-input']";
-    // 保存按钮 locator
+    // Save button locator
     public readonly saveButtonLocator = "button[data-testid='upstream-create-form-submit']";
 
-    // 获取页面标题内容
+    // Get page title content
     getTitleContent(): Cypress.Chainable<string> {
         return cy.get(this.titleLocator).invoke('text');
     }
-    // 输入 upstream 名称
+    // Input upstream name
     inputName(name: string) {
         const comboBox = new UpstreamNameComboBoxPage();
         comboBox.selectOption(name);
     }
-    // 点击保存按钮
+    // Click save button
     clickSaveButton() {
         cy.get(this.saveButtonLocator).click();
     }

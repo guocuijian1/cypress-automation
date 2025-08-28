@@ -1,12 +1,19 @@
 export class UpstreamNameComboBoxPage {
-    // upstream 名称下拉框 locator
+    // Upstream name dropdown locator
     public readonly comboBoxLocator = "input[data-testid='upstreams-form-name']";
 
+    /**
+     * Get the xpath locator for the option with the specified name
+     * @param name The name of the upstream option
+     */
     getOptionLocator(name: string): string {
         return `//div[@class='select-item-container']//span[text()='${name}']`;
     }
 
-    // 选择指定名称的选项
+    /**
+     * Select the option with the specified name from the dropdown
+     * @param optionText The name of the option to select
+     */
     selectOption(optionText: string) {
         cy.get(this.comboBoxLocator).click();
         cy.xpath(this.getOptionLocator(optionText)).first().click();
