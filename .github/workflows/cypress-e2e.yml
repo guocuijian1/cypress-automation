@@ -23,7 +23,7 @@ jobs:
       - name: Merge Mochawesome reports
         run: npm run report:all
       - name: Upload test report artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: merged-report
           path: cypress/reports/merged.html
