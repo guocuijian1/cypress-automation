@@ -28,13 +28,8 @@ jobs:
         run: npx cypress run --spec "cypress/e2e/**/*.cy.ts" --browser chrome
       - name: Merge Mochawesome reports
         run: npm run report:all
-      - name: Upload merged JSON report
+      - name: Upload all reports
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-merged-json
-          path: cypress/reports/merged.json
-      - name: Upload test report artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-report
-          path: cypress/reports/merged.html
+          name: cypress-reports
+          path: cypress/reports
