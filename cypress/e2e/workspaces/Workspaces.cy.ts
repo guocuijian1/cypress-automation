@@ -1,14 +1,15 @@
 import { MainPage } from '../../page-objects/main/main-page';
 import { WorkspacesPage } from '../../page-objects/workspaces/workspaces-page';
 import { MainData } from '../../page-objects/main/main-data';
+import {OverviewPage} from "../../page-objects/workspace/overview/overview-page";
 
-describe.skip('Workspaces functions', () => {
+describe('Workspaces functions', () => {
   const mainPage = new MainPage();
   const workspacesPage = new WorkspacesPage();
   const mainData = new MainData();
   const summaryPanel = workspacesPage.summaryPanel;
-  const tableContainer = workspacesPage.tableContainer;
-  const tableObject = tableContainer.tableObject;
+  const overviewPage = new OverviewPage();
+
 
   before(() => {
     mainData.prepareData();
@@ -19,16 +20,10 @@ describe.skip('Workspaces functions', () => {
     mainPage.enterWorkspacesPage();
   });
 
-  it('should verify all counts are zero or default', () => {
-    summaryPanel.getServicesCount().should('eq', 1);
-    summaryPanel.getRoutesCount().should('eq', 1);
-    summaryPanel.getConsumersCount().should('eq', 0);
-    summaryPanel.getPluginsCount().should('eq', 1);
-    summaryPanel.getAPIRequestCount().should('eq', '--');
-  });
-
-  it('should verify table columns and row count', () => {
-    tableObject.getAllColumns().should('have.length', 4);
-    tableObject.getRowNumber().should('eq', 1);
+  it('should be able to enter default worksapce', () => {
+    summaryPanel.clickDefaultWorkspace();
+    overviewPage.getOverviewTitle().then(title => {
+      expect(title.trim()).to.eq('Overview');
+    });
   });
 });

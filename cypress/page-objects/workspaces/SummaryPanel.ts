@@ -4,7 +4,7 @@ export class SummaryPanel {
     private readonly consumersTextLocator = 'div[data-testid="Consumers"] div.metric-value-text';
     private readonly pluginsTextLocator = 'div[data-testid="Plugins"] div.metric-value-text';
     private readonly apiRequestTextLocator = 'div[data-testid="API Requests"] div.metric-value-text';
-    private readonly defaultWorkspaceLocator = 'div.table-container table div[title="default"]';
+    private readonly defaultWorkspaceLocator = 'div[data-testid="workspace-link-default"]';
 
 
     getServicesCount(): Cypress.Chainable<number> {
